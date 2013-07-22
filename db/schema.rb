@@ -11,7 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130722160647) do
+ActiveRecord::Schema.define(:version => 20130722181729) do
+
+  create_table "copiers", :force => true do |t|
+    t.string   "serial"
+    t.string   "location"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+  end
+
+  add_index "copiers", ["user_id"], :name => "index_copiers_on_user_id"
+
+  create_table "tickets", :force => true do |t|
+    t.text     "issue"
+    t.integer  "counter"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "copier_id"
+  end
+
+  add_index "tickets", ["copier_id"], :name => "index_tickets_on_copier_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

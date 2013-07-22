@@ -1,4 +1,10 @@
 Technet::Application.routes.draw do
+  resources :tickets
+
+
+  resources :copiers
+
+
   devise_for :users
 
   # The priority is based upon order of creation:

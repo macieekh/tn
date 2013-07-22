@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Serial:</b>
+  <%= @copier.serial %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @copier.location %>
+</p>
+
+
+<%= link_to 'Edit', edit_copier_path(@copier) %> |
+<%= link_to 'Back', copiers_path %>
