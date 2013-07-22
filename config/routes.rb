@@ -1,4 +1,7 @@
 Technet::Application.routes.draw do
+  resources :models
+
+
   resources :tickets
 
 
