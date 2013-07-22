@@ -4,7 +4,7 @@
   <tr>
     <th>Serial</th>
     <th>Location</th>
-    <th></th>
+    <th>Model Id</th>
     <th></th>
     <th></th>
   </tr>
@@ -13,6 +13,8 @@
   <tr>
     <td><%= copier.serial %></td>
     <td><%= copier.location %></td>
+    <td><%= Model.find(copier.model_id.to_i).name %></td>
+    
     <td><%= link_to 'Show', copier %></td>
     <td><%= link_to 'Edit', edit_copier_path(copier) %></td>
     <td><%= link_to 'Destroy', copier, method: :delete, data: { confirm: 'Are you sure?' } %></td>

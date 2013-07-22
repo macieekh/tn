@@ -79,7 +79,7 @@ class CopiersController < ApplicationController
   # DELETE /copiers/1.json
   def destroy
     #@copier = Copier.find(params[:id])
-    @copier = current_user.copier.find(params[:id])
+    @copier = current_user.copiers.find(params[:id])
     @copier.destroy
 
     respond_to do |format|

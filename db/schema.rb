@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130722185958) do
+ActiveRecord::Schema.define(:version => 20130722203032) do
 
   create_table "copiers", :force => true do |t|
     t.string   "serial"
@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(:version => 20130722185958) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
+    t.integer  "model_id"
   end
 
+  add_index "copiers", ["model_id"], :name => "index_copiers_on_model_id"
   add_index "copiers", ["user_id"], :name => "index_copiers_on_user_id"
 
   create_table "models", :force => true do |t|
