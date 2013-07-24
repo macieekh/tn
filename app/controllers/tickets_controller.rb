@@ -40,7 +40,11 @@ class TicketsController < ApplicationController
   # POST /tickets
   # POST /tickets.json
   def create
+    #@ticket = Ticket.new(params[:ticket])
+    #@ticket = Ticket.new(params[:ticket,:copier_id => params[:copierid]])
     @ticket = Ticket.new(params[:ticket])
+    @ticket.copier_id = params[:ticket][:copier_id]
+    #@ticket.issue = 
 
     respond_to do |format|
       if @ticket.save

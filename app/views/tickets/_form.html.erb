@@ -4,6 +4,7 @@
   <div class="form-inputs">
     <%= f.input :issue %>
     <%= f.input :counter %>
+  	<%= f.hidden_field :copier_id, :value => params[:copier_id] %>
   </div>
 
   <div class="form-actions">
