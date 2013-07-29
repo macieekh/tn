@@ -1,6 +1,7 @@
 <% if params[:type] != NIL %>
 <% if params[:type] == "toner"%>
 <h1>Zamów Toner</h1>
+<%= render 'form' %>
 <% else %>
 <h1>Zamów Serwis</h1>
 <%= render 'form' %>

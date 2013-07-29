@@ -1,4 +1,5 @@
-<p id="notice"><%= notice %></p>
+MOVE THIS FILE TO TICKETS
+<h1>Listing tickets</h1>
 
 <p>
   <b>Serial:</b>
@@ -10,6 +11,33 @@
   <%= @copier.location %>
 </p>
 
+<%= Model.find(@copier.model_id.to_i).name %>
 
-<%= link_to 'Edit', edit_copier_path(@copier) %> |
-<%= link_to 'Back', copiers_path %>
+<table>
+  <tr>
+    <th>Issue</th>
+    <th>Counter</th>
+    <th>Copier id</th>
+    <th>Status</th>
+    <th></th>
+  </tr>
+
+<% @tickets = Ticket.all %>
+<% @tickets.each do |ticket| %>
+<% if ticket.copier_id.to_i == params[:id].to_i %> 
+  <tr>
+    <td><%= ticket.issue %></td>
+    <td><%= ticket.counter %></td>
+    <td><%= ticket.copier_id %></td>
+    <td><%= ticket.status %></td>
+    <td><%= link_to 'Show', ticket %></td>
+    <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+    <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+  <% end %>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ticket', new_ticket_path %>

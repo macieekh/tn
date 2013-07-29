@@ -20,11 +20,6 @@
 <% end %>
 </table>
 
-<p>
- <%= collection_select(:name, :id, @models, :id, :name, :prompt => "Select a prospect") %>
-</p>
-
-
 <br />
 
 <%= link_to 'New Model', new_model_path %>

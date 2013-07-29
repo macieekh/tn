@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130722203032) do
+ActiveRecord::Schema.define(:version => 20130729140743) do
 
   create_table "copiers", :force => true do |t|
     t.string   "serial"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20130722203032) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "copier_id"
+    t.string   "status"
   end
 
   add_index "tickets", ["copier_id"], :name => "index_tickets_on_copier_id"

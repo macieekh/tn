@@ -10,6 +10,7 @@
   </tr>
 
 <% @copiers.each do |copier| %>
+  <% if current_user == copier.user %>
   <tr>
     <td><%= copier.serial %></td>
     <td><%= copier.location %></td>
@@ -18,9 +19,13 @@
     <td><%= link_to 'Show', copier %></td>
     <td><%= link_to 'Edit', edit_copier_path(copier) %></td>
     <td><%= link_to 'Destroy', copier, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <td><%= hidden_field :copier_id, :value => copier.id %>
-    <%= link_to 'Zamow Toner', new_ticket_path(:copier_id => copier) %> </td>
+    <!--<td><%= hidden_field :copier_id, :value => copier.id %> </td>> !-->
+
+    <td><%= link_to 'Zamow Toner', new_ticket_path(:copier_id => copier, :type => "toner") %> </td>
+    <td><%= link_to 'Zamow Serwis', new_ticket_path(:copier_id => copier) %> </td>
   </tr>
+<% end %>
+
 <% end %>
 </table>
 
